@@ -1,0 +1,19 @@
+{
+  "name": "telecom-bundle",
+  "version": "1.0.0",
+  "description": "Telecom bundles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ImDiegoDM/telecom-bundle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ImDiegoDM/telecom-bundle/issues"
+  },
+  "homepage": "https://github.com/ImDiegoDM/telecom-bundle#readme"
+}
