@@ -4,7 +4,8 @@
   "description": "Telecom bundles",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"tsc && node ./dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ImDiegoDM/telecom-bundle/issues"
   },
-  "homepage": "https://github.com/ImDiegoDM/telecom-bundle#readme"
+  "homepage": "https://github.com/ImDiegoDM/telecom-bundle#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
