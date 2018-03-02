@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
     "module": "commonjs",
     "outDir": "dist",
     "sourceMap": true
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "src/telecom-bundle-diagrams.json"
   ],
   "exclude": [
     "node_modules"

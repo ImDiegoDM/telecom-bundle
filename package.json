@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"tsc && node ./dist/index.js"
+    "start":"node build.js",
+    "tsc":"tsc"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ImDiegoDM/telecom-bundle.git"
   },
-  "author": "",
+  "author": "Diego Matias de Olivera",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ImDiegoDM/telecom-bundle/issues"

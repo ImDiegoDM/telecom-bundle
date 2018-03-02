@@ -1,11 +1,15 @@
 import * as express from 'express';
+import { BroadBandController } from './Controllers/BroadBandController';
 
 export class App{
   public app:any;
   private port:number;
+  private broadBandController:BroadBandController;
 
   constructor(port:number){
     this.port = port;
+    this.broadBandController = new BroadBandController();
+    
     this.app = express();
     this.MountRoutes();
   }
@@ -21,10 +25,6 @@ export class App{
   }
 
   private MountRoutes():void{
-    this.app.get('/',(request,response)=>{
-      response.json({
-        message:'Hello Mother fucker'
-      });
-    });
+    this.app.get('/',this.broadBandController.GetAllBoradBands);
   }
 }
