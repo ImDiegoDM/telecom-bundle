@@ -1,15 +1,18 @@
 export enum ServiceType{
-  bb,tv,ll,addon
+  bb="bb",tv="tv",ll="ll",addon="addon"
 }
 
-export class ServiceConection{
-  public conection_id:number;
-  public cost:number;
+export interface ServiceConectionInterface{
+  conection_id:number;
+  cost:number;
+}
 
-  constructor(conection_id:number,cost:number){
-    this.conection_id = conection_id;
-    this.cost = cost;
-  }
+export interface ServiceInterface{
+  id:number;
+  name:string;
+  type:string;
+  price:number;
+  conections:ServiceConectionInterface[];
 }
 
 export class Service{
@@ -18,9 +21,9 @@ export class Service{
   public name:string;
   public type:ServiceType;
   public price:number;
-  private conections:ServiceConection[];
+  public conections:ServiceConectionInterface[];
 
-  constructor(id:number,name:string,type:ServiceType,price:number,conections:ServiceConection[]){
+  constructor(id:number,name:string,type:ServiceType,price:number,conections:ServiceConectionInterface[]){
     this.id = id;
     this.name = name;
     this.type = type;
@@ -28,7 +31,11 @@ export class Service{
     this.conections = conections;
   }
 
-  public GetServiceConection(id:number):ServiceConection{
+  public static CreateFromInterface(serviceInterface:ServiceInterface):Service{
+    return new Service(serviceInterface.id,serviceInterface.name,ServiceType[serviceInterface.type],serviceInterface.price,serviceInterface.conections);
+  }
+
+  public GetServiceConection(id:number):ServiceConectionInterface{
     for (let i = 0; i < this.conections.length; i++) {
         if(this.conections[i].conection_id == id) return this.conections[i];
     }

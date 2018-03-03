@@ -1,4 +1,4 @@
-import {Service,ServiceType,ServiceConection} from './Service';
+import {Service,ServiceType} from './Service';
 
 import * as mocha from 'mocha';
 import * as chai from 'chai';

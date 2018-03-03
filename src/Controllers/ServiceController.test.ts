@@ -1,29 +1,48 @@
-import {ServiceController} from './ServiceController';
-import {Service,ServiceType} from '../Model/Service';
+import {ServiceController,ServiceDiagram} from './ServiceController';
+import {Service,ServiceType,ServiceInterface} from '../Model/Service';
 import {Bundle} from '../Model/Bundle';
 
 import * as mocha from 'mocha';
 import * as chai from 'chai';
 
-/*const expect = chai.expect;
-describe('Broad Band Controller', () => {
+const expect = chai.expect;
+describe('Service Controller', () => {
 
-  it('should return correct list of broad bands' , () => {
-    let broadBandController = new BroadBandController();
-    let diagram:BroadBand[]=[];
-    diagram.push(new BroadBand(1,'broadband2',BroadBandType.bb,60,[{conection_id:2,cost:-10},{conection_id:3,cost:-40}]));
-    diagram.push(new BroadBand(2,'TV1',BroadBandType.tv,50,[{conection_id:3,cost:-10}]));
-    diagram.push(new BroadBand(3,'Landline',BroadBandType.ll,35,[]));
-    broadBandController.broadBandDiagram = diagram;
-    let expectedPack:BroadBandPack[] = [
-      {names:['Landline'],cost:35},
-      {names:['TV1'],cost:50},
-      {names:['broadband2'],cost:60},
-      {names:['Landline','TV1'],cost:75},
-      {names:['broadband2','TV1'],cost:100},
-      {names:['broadband2','Landline','TV1'],cost:125},
+  it('Should return correct list of all bundles' , () => {
+    let diagramInterface:ServiceInterface[] =  [
+      {
+        "id":2,
+        "name":"TV1",
+        "type":"tv",
+        "price":50,
+        "conections":[
+          {"conection_id":3,"cost":-10}
+        ]
+      },
+      {
+        "id":3,
+        "name":"Landline",
+        "type":"ll",
+        "price":35,
+        "conections":[]
+      },
+      {
+        "id":4,
+        "name":"Broadband2",
+        "type":"bb",
+        "price":60,
+        "conections":[
+          {"conection_id":2,"cost":-10},
+          {"conection_id":3,"cost":-40}
+        ]
+      },
     ]
-    expect(broadBandController.BroadBandPacks()).to.equal(expectedPack);
+
+    let diagram = ServiceDiagram.GenerateDiagram(diagramInterface);
+
+    let allBundles = new ServiceController().Bundles(diagram);
+
+    expect(allBundles.length).to.equal(7);
   });
 
-});*/
+});
