@@ -6,8 +6,7 @@
     "sourceMap": true
   },
   "include": [
-    "src/**/*.ts",
-    "src/telecom-bundle-diagrams.json"
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules"

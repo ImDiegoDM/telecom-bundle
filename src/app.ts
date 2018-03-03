@@ -1,15 +1,15 @@
 import * as express from 'express';
-import { BroadBandController } from './Controllers/BroadBandController';
+import { ServiceController } from './Controllers/ServiceController';
 
 export class App{
   public app:any;
   private port:number;
-  private broadBandController:BroadBandController;
+  private broadBandController:ServiceController;
 
   constructor(port:number){
     this.port = port;
-    this.broadBandController = new BroadBandController();
-    
+    this.broadBandController = new ServiceController();
+
     this.app = express();
     this.MountRoutes();
   }
@@ -25,6 +25,6 @@ export class App{
   }
 
   private MountRoutes():void{
-    this.app.get('/',this.broadBandController.GetAllBoradBands);
+    this.app.get('/',(request,response)=>{this.broadBandController.GetAllBundles(request,response)});
   }
 }

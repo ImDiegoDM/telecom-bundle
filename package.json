@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node build.js",
-    "tsc":"tsc"
+    "start": "node build.js",
+    "tsc": "tsc",
+    "test":"mocha -r ts-node/register src/**/*.test.ts"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,13 @@
   "homepage": "https://github.com/ImDiegoDM/telecom-bundle#readme",
   "dependencies": {
     "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.2",
+    "@types/mocha": "^2.2.48",
+    "chai": "^4.1.2",
+    "mocha": "^5.0.1",
+    "ts-node": "^5.0.1",
+    "typescript": "^2.7.2"
   }
 }
