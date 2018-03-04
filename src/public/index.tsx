@@ -1,9 +1,19 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { Hello } from "./components/Hello";
+import { BundleComponent } from "./components/BundleComponent";
+import {Hello} from "./components/hello";
+import {BundleProvider} from './provider/BundleProvider';
 
-ReactDOM.render(
-    <Hello compiler="TypeScript" framework="React" />,
+BundleProvider.GetAllBundles().then((data)=>{
+  ReactDOM.render((
+    <div>
+    teste
+      {data.map(bundle=>
+        <BundleComponent bundle={bundle}/>
+      )}
+    </div>
+    ),
     document.getElementById("example")
-);
+  );
+})

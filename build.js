@@ -23,8 +23,9 @@ if (!fs.existsSync('./dist/public/')){
     fs.mkdirSync('./dist/public/');
 }
 copyFile('./src/public/index.html', './dist/public/');
-copyFile('./node_modules/react/umd/react.production.min.js', './dist/public/');
-copyFile('./node_modules/react-dom/umd/react-dom.production.min.js', './dist/public/');
+copyFile('./node_modules/react/umd/react.development.js', './dist/public/');
+copyFile('./node_modules/jquery/dist/jquery.min.js', './dist/public/');
+copyFile('./node_modules/react-dom/umd/react-dom.development.js', './dist/public/');
 var child = exec('npm run webpack && npm run tsc && node ./dist/index.js');
 child.stdout.on('data', function(data) {
     console.log(data);

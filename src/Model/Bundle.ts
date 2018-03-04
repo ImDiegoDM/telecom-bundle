@@ -1,5 +1,10 @@
-import { Service,ServiceConectionInterface,ServiceType} from './Service';
+import { Service,ServiceConectionInterface,ServiceType,ServiceInterface} from './Service';
 import { ServiceDiagram } from '../Controllers/ServiceController';
+
+export class BundleInterface{
+  services:ServiceInterface[];
+  cost:number;
+}
 
 export class Bundle{
   services:Service[];
