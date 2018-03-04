@@ -1,3 +1,19 @@
-.test2{
-  opacity: 1;
+.bundle{
+  padding: 5px;
+  div{
+    height: 100px;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: -3px 3px 10px 3px #848484;
+    position: relative;
+    .names{
+      position: absolute;
+    }
+    .price{
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      font-weight: bold;
+    }
+  }
 }

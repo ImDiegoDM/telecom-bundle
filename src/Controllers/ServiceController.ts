@@ -57,6 +57,16 @@ export class ServiceController{
     response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     response.setHeader('Access-Control-Allow-Credentials', true);
-    response.json(this.Bundles(this.telecomBundleDiagram));
+    let bundles = this.Bundles(this.telecomBundleDiagram);
+    bundles = bundles.sort((a:Bundle,b:Bundle):number=>{
+      if(a.cost<b.cost){
+        return -1;
+      }
+      else if(a.cost>b.cost){
+        return 1;
+      }
+      return 0;
+    });
+    response.json(bundles);
   }
 }
