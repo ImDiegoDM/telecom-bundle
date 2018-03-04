@@ -1,4 +1,4 @@
-import * as broadBandDiagramJSON from '../telecom-bundle-diagrams.json';
+import * as telecomBundleDiagramJSON from '../telecom-bundle-diagrams.json';
 import {Service,ServiceInterface} from '../Model/Service';
 import {Bundle} from '../Model/Bundle';
 
@@ -22,10 +22,13 @@ export class ServiceDiagram{
 
 export class ServiceController{
 
-  public broadBandDiagram:Service[];
+  public telecomBundleDiagram:Service[];
 
   constructor(){
-
+    if(telecomBundleDiagramJSON){
+      let aux:any =telecomBundleDiagramJSON;
+      this.telecomBundleDiagram = ServiceDiagram.GenerateDiagram(aux);
+    }
   }
 
   public Bundles(diagram:Service[]):Bundle[]{
@@ -50,6 +53,6 @@ export class ServiceController{
   }
 
   public GetAllBundles(request,response){
-    response.json(this.broadBandDiagram);
+    response.json(this.Bundles(this.telecomBundleDiagram));
   }
 }
