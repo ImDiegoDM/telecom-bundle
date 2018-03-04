@@ -1,7 +1,9 @@
 var fs = require('fs');
 var path = require('path');
 var open = require('open');
-const { exec } = require('child_process');
+var sass = require('node-sass');
+var concatFile = require('./concatFile');
+const { exec,execSync } = require('child_process');
 
 //copy the $file to $dir2
 var copyFile = (file, dir2)=>{
@@ -17,7 +19,12 @@ var copyFile = (file, dir2)=>{
   source.on('error', function(err) { console.log(err); });
 };
 
-//example, copy file1.htm from 'test/dir_1/' to 'test/'
+execSync('npm run node-sass');
+
+concatFile('./dist/public','.css','./dist/public');
+
+/*
+//copy dependecies file for front end
 copyFile('./src/telecom-bundle-diagrams.json', './dist/');
 if (!fs.existsSync('./dist/public/')){
     fs.mkdirSync('./dist/public/');
@@ -26,6 +33,9 @@ copyFile('./src/public/index.html', './dist/public/');
 copyFile('./node_modules/react/umd/react.development.js', './dist/public/');
 copyFile('./node_modules/jquery/dist/jquery.min.js', './dist/public/');
 copyFile('./node_modules/react-dom/umd/react-dom.development.js', './dist/public/');
+
+
+// build front end, back end and then run the node server
 var child = exec('npm run webpack && npm run tsc && node ./dist/index.js');
 child.stdout.on('data', function(data) {
     console.log(data);
@@ -35,4 +45,4 @@ child.stderr.on('data', function(data) {
 });
 child.on('close', function(code) {
     console.log(code);
-});
+});*/

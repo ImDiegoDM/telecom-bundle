@@ -7,7 +7,8 @@
     "test": "mocha -r ts-node/register src/**/*.test.ts",
     "start": "node build.js",
     "tsc": "tsc",
-    "webpack": "webpack"
+    "webpack": "webpack",
+    "node-sass":"node-sass src/public/ -o dist/public/ --output-style compressed"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "@types/react-dom": "^16.0.4",
     "express": "^4.16.2",
     "jquery": "^3.3.1",
+    "node-sass": "^4.7.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
