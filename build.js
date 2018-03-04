@@ -23,7 +23,7 @@ execSync('npm run node-sass');
 
 concatFile('./dist/public','.css','./dist/public');
 
-/*
+
 //copy dependecies file for front end
 copyFile('./src/telecom-bundle-diagrams.json', './dist/');
 if (!fs.existsSync('./dist/public/')){
@@ -45,4 +45,4 @@ child.stderr.on('data', function(data) {
 });
 child.on('close', function(code) {
     console.log(code);
-});*/
+});
