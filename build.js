@@ -21,6 +21,9 @@ var copyFile = (file, dir2,callback)=>{
 
 
 //copy dependecies file for front end
+if (!fs.existsSync('./dist/')){
+    fs.mkdirSync('./dist/');
+}
 copyFile('./src/telecom-bundle-diagrams.json', './dist/');
 if (!fs.existsSync('./dist/public/')){
     fs.mkdirSync('./dist/public/');
