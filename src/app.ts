@@ -26,15 +26,15 @@ export class App{
       if (err) {
         return console.log(err)
       }
-
+      console.log(`The build is finished`);
       return console.log(`Back End server is listening on ${this.port}`)
     })
     this.frontEnd.listen(8080, (err:any) => {
       if (err) {
         return console.log(err)
       }
-
-      return console.log(`Front End server is listening on 8080`);
+      console.log(`Front End server is listening on 8080`);
+      return console.log(`The magic happens http://localhost:8080`)
     })
   }
 
