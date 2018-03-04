@@ -20,7 +20,9 @@ function getFilesRecursivly(directory,type){
 }
 
 module.exports = function(directory,type,destination) {
-  fs.unlinkSync(destination+'/main'+type);
+  if (fs.existsSync(destination+'/main'+type)){
+    fs.unlinkSync(destination+'/main'+type);
+  }
   let files = getFilesRecursivly(directory,type);
   let concatFilesContent = '';
   for (var i = 0; i < files.length; i++) {
