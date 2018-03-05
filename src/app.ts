@@ -39,9 +39,6 @@ export class App{
   }
 
   private MountBackEndRoutes():void{
-    this.backEnd.get('/',(request:any,response:any)=>{this.serviceController.GetAllBundles(request,response)});
-  }
-  private MountFrontEndRoutes():void{
-    this.frontEnd.get('/',(request:any,response:any)=>{this.frontEndController.GetPage(request,response)});
+    this.backEnd.get('/list-all-broadband',(request:any,response:any)=>{this.serviceController.GetAllBundles(request,response)});
   }
 }
