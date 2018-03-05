@@ -1,6 +1,6 @@
 # telecom-bundle
 
-## To run this project just acess this folder in command line and type:
+To run this project just acess this folder in command line and type:
 * npm install
 * npm start
 
